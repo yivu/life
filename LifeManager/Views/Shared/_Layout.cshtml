@@ -29,13 +29,17 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">LifeManager</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Habits" asp-action="Index">Tracking table</a></li>
+                        <li><a asp-area="" asp-controller="Todo" asp-action="Index">To-do list</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Planner</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Statistics</a></li>
+                    </ul>
+                }
                 <partial name="_LoginPartial" />
-            </div>
+                </div>
         </div>
     </nav>
 

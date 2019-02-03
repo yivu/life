@@ -8,6 +8,7 @@ namespace LifeManager.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        public DbSet<Todo> Todos { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
